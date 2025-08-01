@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/twentytwenty.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/scrolla.jquery.min.js"></script>
+    <script src="js/splitting.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Flip.min.js"></script>
+    <script src="js/jquery.event.move.js"></script>
+    <script src="js/jquery.twentytwenty.js"></script>
+    <script>
+    $(function(){
+      $(".twentytwenty-container[data-orientation!='vertical']").twentytwenty({default_offset_pct: 0.7});
+      // $(".twentytwenty-container[data-orientation='vertical']").twentytwenty({default_offset_pct: 0.3, orientation: 'vertical'});
+    });
+    </script>
+    
+    <title>Document</title>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="navBox">
+            <ul class="navList">
+                <li><a href="#home"><img src="img/navi/home.png" alt="home"></a></li>
+                <li><a href="#work"><img src="img/navi/work.png" alt="work"></a></li>
+                <li><a href="#projects"><img src="img/navi/projects.png" alt="project"></a></li>
+                <li><a href="#design"><img src="img/navi/design.png" alt="design"></a></li>
+                <li><a href="#contact"><img src="img/navi/contact.png" alt="contact"></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="wrap">
+        <div class="container" style="position: relative;">
+            <section class="intro" id="intro">
+                <div class="intro-inner">
+                    <h1 class="intro-title">
+                        <span class="char y">Y</span><span class="h">H</span><span class="char pf">PortFolio</span>
+                    </h1>
+                </div>
+            </section>
+            <section class="home" id="home">
+                <div class="home-inner">
+                    <div class="fixed-image">
+                        <span class="empty"><img src="img/homeSectionimg4.png" alt=""></span> 
+                    </div>
+                    <div class="clockBox">
+                        <div id="clock" class="clock">오전 00:00</div>
+                    </div>
+                    <div class="home-titleBox">
+                        <h2 class="home-line line01">Hello I'm</h2>
+                        <h2 class="home-line line02">
+                            <span class="char y-copy">Y</span>oung <span class="char h-copy">H</span>un <span class="Mgleft">Kim</span>
+                        </h2>
+                        <h2 class="home-line line03">Let me share you</h2>
+                        <h2 class="home-line line04">My <span class="char pf-copy">PortFolio</span></h2>
+                    </div>
+                    <div class="scroll-textBox" id="scroll-textBox">
+                        <h2 class="title">
+                            <span class="en1">About</span> <span class="en2">Me</span>
+                        </h2>
+                        <div class="textBox">
+                            <p class="tit">조화로운 연결을 추구하는 <span class="en1">Frontend Developer</span> 김영훈입니다.</p>
+                            <p class="txt">
+                                사용자가 머무르고 싶어 하고, 웹사이트의 목표를 자연스럽게 달성하도록 돕는 디자인을 만들고 있으며<br>
+                                사람과 기술, 그리고 디자인의 조화를 통해 즐거운 디지털 경험을 선사하는 것에 열정을 쏟고 있습니다.<br>
+                                끊임없이 배우고 성장하며, 더 나은 경험을 제공하기 위해 노력하겠습니다. 여러분과 함께 멋진 프로젝트를 <br>만들어 가길 기대합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div> <!-- .home-inner 닫힘 -->
+                <div class="scrollDownBox">
+                    <div class="scrolldown" style="--color: #fff">
+                        <div class="chevrons">
+                            <div class="chevrondown"></div>
+                            <div class="chevrondown"></div>
+                        </div>
+                    </div>
+                </div>
+            </section> <!-- .home 닫힘 -->
+        </div> <!-- .container 닫힘 -->
+        <section class="work" id="work">
+            <div class="inner">
+                <div class="topBox animate" data-animate="motion">
+                    <h2><span class="en2">Work</span> <span class="en1">Experience</span></h2>
+                    <p class="txt">
+                        저의 경험은 과거에 머무리지 않고 현재진행형이며, 미래를 향해 계속될 여정입니다. <br>
+                        늘 새로운 도전을 즐기며 새로운 가능성을 열어가겠습니다.
+                    </p>
+                </div>
+                <div class="bottomBox">
+                    <div class="container">
+                        <div class="circle">
+                            <div class="inner-dot"></div>
+                            <div class="line"></div>
+                        </div>
+                        <p class="year">2024</p>
+                        <div class="rightBox animate" data-animate="motion">
+                            <div class="tit">
+                                <div class="textBox">
+                                    <p class="name">SZGN PTY LTD</p>
+                                    <p class="about">store,sales management - 8months</p>
+                                </div>
+                                <p class="img"><img src="img/experience1.png" alt=""></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="circle">
+                            <div class="inner-dot"></div>
+                            <div class="line"></div>
+                        </div>
+                        <p class="year">2023</p>
+                        <div class="rightBox animate" data-animate="motion">
+                            <div class="tit">
+                                <div class="textBox">
+                                    <p class="name">LEGEND FOOD PTY LTD</p>
+                                    <p class="about">customer service management(HANS'S Food) - 9months</p>
+                                </div>
+                                <p class="img"><img src="img/experience2.png" alt=""></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="circle">
+                            <div class="inner-dot"></div>
+                            <div class="line"></div>
+                        </div>
+                        <p class="year">2022</p>
+                        <div class="rightBox animate" data-animate="motion">
+                            <div class="tit">
+                                <div class="textBox">
+                                    <p class="name">LF FOOD</p>
+                                    <p class="about">logistics planning / 물류 기획팀 근무 - 1year</p>
+                                </div>
+                                <p class="img"><img src="img/experience3.png" alt=""></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="circle">
+                            <div class="inner-dot"></div>
+                            <div class="line"></div>
+                        </div>
+                        <p class="year">2021</p>
+                        <div class="rightBox animate" data-animate="motion">
+                            <div class="tit">
+                                <div class="textBox">
+                                    <p class="name">GRADUATED FROM JANGAN <br>UNIVERSITY</p>
+                                    <p class="about">business administration / 경영학부 졸업 - 학사학위</p>
+                                </div>
+                                <p class="img"><img src="img/experience4.png" alt=""></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="circle">
+                            <div class="inner-dot"></div>
+                            <div class="line"></div>
+                        </div>
+                        <p class="year">2019</p>
+                        <div class="rightBox animate" data-animate="motion">
+                            <div class="tit">
+                                <div class="textBox">
+                                    <p class="name">FINA WORLDCHAMPIONSHIPS<br> GWANGJU</p>
+                                    <p class="about">competition operations planning officer / 경기 진행 기획 사무원</p>
+                                </div>
+                                <p class="img"><img src="img/experience5.png" alt=""></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="hobbies">
+            <div class="inner">
+                <div class="topBox animate" data-animate="motion">
+                    <h2><span class="en2">My</span> <span class="en1">Hobbies</span></h2>
+                    <p class="txt">
+                        스노우 보드와 여행은 제 일상에 활력을 더해주는 취미이며 눈을 가르는 움직임 속에서<br>잡념은 사라지고, 오롯이 순간에 집중하게 되고, 낯선 도시에서 마주치는 색다른 풍경은<br>디자인에 새로운 시선을 가져다 줍니다. 다양한 경험속에서 얻은 감각은 저만의 디자인<br>언어를 만들어가는데 도움이 됩니다.
+                    </p>
+                </div>
+            </div>
+            <ul class="hobbies-gallery cluster">
+                <li class="hobbies-item">
+                    <p class="img">
+                        <img src="img/hobbiesCenter.png" alt="">
+                    </p>
+                </li>
+                <li class="hobbies-item">
+                    <p class="img">
+                        <img src="img/hobbies1.png" alt="">
+                    </p>
+                </li>
+                <li class="hobbies-item">
+                    <p class="img">
+                        <img src="img/hobbies2.png" alt="">
+                    </p>
+                </li>
+                <li class="hobbies-item">
+                    <p class="img">
+                        <img src="img/hobbies3.png" alt="">
+                    </p>
+                </li>
+                <li class="hobbies-item">
+                    <p class="img">
+                        <img src="img/hobbies4.png" alt="">
+                    </p>
+                </li>
+                <li class="hobbies-item">
+                    <p class="img">
+                        <img src="img/hobbies5.png" alt="">
+                    </p>
+                </li>
+                <li class="hobbies-item">
+                    <p class="img">
+                        <img src="img/hobbies6.png" alt="">
+                    </p>
+                </li>
+            </ul>
+        </section>
+        <section class="projects" id="projects">
+            <div class="inner">
+                <div class="topBox animate" data-animate="motion">
+                    <h2><span class="en1">Projects</span> <span class="en2">& Skills</span></h2>
+                    <p class="txt">
+                        다양한 프로젝트에서 문제정의, 솔루션 도출, 시각화 능력을 실질적으로 키웠습니다. <br> Figma, HTML, AI, REACT, JS 등 숙련된 툴 활용 능력을 통해,<br> 사용자 경험의 지평을 넓히고, 실질적인 니즈를 충족시키는 디자인을 선보입니다.
+                    </p>
+                </div>
+            </div>
+            <div class="swiper mySwiper animate" data-animate="motion" data-color="#f06f4f">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="imgBox">
+                            <a href="#"><img src="img/project/project1.png" alt="따릉이"></a>
+                            <ul class="skill">
+                                <li class="skillBox"><img src="img/skill/figma.png" alt="figma"></li>
+                                <li class="skillBox"><img src="img/skill/photoShop.png" alt="photoshop"></li>
+                            </ul>
+                        </div>
+                        <div class="textBox">
+                            <div class="title"><span class="en1">UXUI</span> 따릉이</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="imgBox">
+                            <a href="#"><img src="img/project/project2.png" alt="제네시스"></a>
+                            <ul class="skill">
+                                <li class="skillBox"><img src="img/skill/html.png" alt="html"></li>
+                                <li class="skillBox"><img src="img/skill/css.png" alt="css"></li>
+                                <li class="skillBox"><img src="img/skill/jquery.png" alt="jquery"></li>
+                                <li class="skillBox"><img src="img/skill/js.png" alt="js"></li>
+                            </ul>
+                        </div>
+                        <div class="textBox">
+                            <div class="title"><span class="en1">Clone Coding</span> Genesis</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="imgBox">
+                            <a href="#"><img src="img/project/project3.png" alt="hobby"></a>
+                            <ul class="skill">
+                                <li class="skillBox"><img src="img/skill/html.png" alt="html"></li>
+                                <li class="skillBox"><img src="img/skill/css.png" alt="css"></li>
+                                <li class="skillBox"><img src="img/skill/gsap.png" alt="gsap"></li>
+                                <li class="skillBox"><img src="img/skill/js.png" alt="js"></li>
+                            </ul>
+                        </div>
+                        <div class="textBox">
+                            <div class="title"><span class="en1">Clone Coding</span> Travel</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="imgBox">
+                            <a href="#"><img src="img/project/project4.png" alt="대혜"></a>
+                            <ul class="skill">
+                                <li class="skillBox"><img src="img/skill/html.png" alt="html"></li>
+                                <li class="skillBox"><img src="img/skill/css.png" alt="css"></li>
+                                <li class="skillBox"><img src="img/skill/js.png" alt="js"></li>
+                            </ul>
+                        </div>
+                        <div class="textBox">
+                            <div class="title"><span class="en1">Clone Coding</span> Daehye</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="imgBox">
+                            <a href="#"><img src="img/project/project5.png" alt="크루얼라"></a>
+                            <ul class="skill">
+                                <li class="skillBox"><img src="img/skill/html.png" alt="html"></li>
+                                <li class="skillBox"><img src="img/skill/css.png" alt="css"></li>
+                                <li class="skillBox"><img src="img/skill/jquery.png" alt="jquery"></li>
+                                <li class="skillBox"><img src="img/skill/js.png" alt="js"></li>
+                            </ul>
+                        </div>
+                        <div class="textBox">
+                            <div class="title"><span class="en1">Clone Coding</span> Crew a la mode</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-buttonBox">
+                    <div class="swiper-button-prev">
+                        <button class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75-6.75M4.5 12l6.75 6.75" />
+                            </svg>
+                            <div class="text">Prev</div>
+                        </button>
+                    </div>
+                    <div class="swiper-button-next">
+                        <button class="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"></path>
+                            </svg>
+                            <div class="text">Next</div>
+                    </button>
+                </div>
+                </div>
+            </div>
+        </section>
+        <section class="design" id="design">
+            <div class="inner">
+                <div class="topBox animate" data-animate="motion">
+                    <h2><span class="en2">Behind</span> <span class="en1">the Design</span></h2>
+                </div>
+                <ul class="container">
+                    <li class="containerBox animate" data-animate="motion">
+                        <p class="imgBox"><img src="img/design-flowchart.png" alt=""></p>
+                    </li>
+                    <li class="containerBox animate" data-animate="motion">
+                        <p class="imgBox"><img src="img/design-wireframe.png" alt=""></p>
+                    </li>
+                    <li class="changeBox animate" data-animate="motion">
+                        <div class="row">
+                            <div class="large-8 columns">
+                                <div class="twentytwenty-container">
+                                    <img src="img/design-before.png" />
+                                    <img src="img/design-after.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="designBox animate" data-animate="motion">
+                        <div class="designBox-inner">
+                            <div class="title">
+                                <h2 class="en1">Design Guide</h2>
+                            </div>
+                            <div class="bottomBox">
+                                <div class="leftBox">
+                                    <p class="leftBox-title">Typography</p>
+                                    <p class="leftBox-txt01">
+                                        Font Family En<br>
+                                        <span class="en1">Sorts Mill Goudy : <span class="regular">Regular</span></span> <br>
+                                        <span class="en2">Trirong : <span class="regular">Regular</span></span><br>
+                                        Poppings : <span class="bold">Bold</span>,Regular, <span class="medium">Medium</span>
+                                    </p>
+                                    <p class="leftBox-title02">Typography Usage</p>
+                                    <p class="leftBox-txt02">
+                                        Font Family Ko<br>
+                                        <span class="ko">Pretendard : Regular</span>
+                                    </p>
+                                    <p class="leftBox-txt03">
+                                        Headlines: Use bold weights, white color, 1.0 line-height.<br>
+                                        Body Text: Regular weight, >100% Line Height, size 16px minimum. <br>
+                                        Responsive: Use clamp or media query scaling from mobile to desktop.
+                                    </p>
+                                </div>
+                                <div class="rightBox">
+                                    <div class="colorBox">
+                                        <p class="colorBox-title">
+                                            Colors
+                                        </p>
+                                        <img src="img/design-colors.png" alt="colors">
+                                    </div>
+                                    <div class="subcolorBox">
+                                        <p class="subcolorBox-title">
+                                            Sub Colors
+                                        </p>
+                                        <img src="img/design-subcolors.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="textBox">
+                    <p class="txt animate" data-animate="motion">This portfolio was created with</p>
+                    <ul class="skill animate" data-animate="motion">
+                        <li><img src="img/skill/html.png" alt="html"></li>
+                        <li><img src="img/skill/css.png" alt="css"></li>
+                        <li><img src="img/skill/js.png" alt="js"></li>
+                        <li><img src="img/skill/gsap.png" alt="gsap"></li>
+                        <li><img src="img/skill/jquery.png" alt="jquery"></li>
+                        <li><img src="img/skill/figma.png" alt="figma"></li>
+                        <li><img src="img/skill/illust.png" alt="illust"></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="contact" id="contact">
+            <div class="inner animate" data-animate="motion">
+                <div class="topBox">
+                    <h2><span class="en1">Contact</span></h2>
+                </div>
+                <div class="container">
+                    <div class="textBox">
+                        <ul class="list">
+                            <li class="logoBox">
+                                <p class="img"><img src="img/icon/gmail.png" alt="gmail"></p>
+                                <p class="img"><img src="img/icon/phonecall.png" alt="phone"></p>
+                                <p class="img"><img src="img/icon/maps.png" alt="maps"></p>
+                            </li>
+                            <li class="subject">
+                                <p class="mail"><span class="en1">E-mail</span></p>
+                                <p class="phone"><span class="en1">Phone</span></p>
+                                <p class="address"><span class="en1">Address</span></p>
+                            </li>
+                            <li class="detail">
+                                <p class="mail-detail"><span class="en2">hoon6481@gmail.com</span></p>
+                                <p class="phone-detail"><span class="en2">010-5601-6482</span></p>
+                                <p class="address-detail"><span class="en2">Republic of Korea, Hwaseong</span></p>
+                            </li>
+                        </ul>
+                        <div id="svgWrapper">
+                            <div class="imgBox">
+                            <p class="mainImg"><img src="img/contact/contactImg.png" alt="mainImg"></p>
+                            <p class="svg">
+                                <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 1015.69 564.59" style="enable-background:new 0 0 1015.69 564.59; filter: drop-shadow(4px 4px 4px rgba(0,0,0,0.5));" xml:space="preserve">
+                                <style type="text/css">
+                                #svgAni01{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                #svgAni02{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                #svgAni03{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                #svgAni04{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                #svgAni05{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                #svgAni06{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                #svgAni07{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                #svgAni08{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                #svgAni09{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                #svgAni10{fill:none;stroke:#fff;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+                                </style>
+                                    <path id="svgAni01" d="M25.43,327.68c-1.18,18.64,2.84,32.56,5.94,40.63c3.37,8.77,11.46,29.85,24.71,30.65
+                	                c0.86,0.05,3.82,0.14,6.89-1.43c9.84-5.03,10.6-21.86,11.17-34.46c0.29-6.38-0.19-6.38-0.24-15.92c-0.11-22.1-0.16-33.15,3.78-34.63
+                	                c8.03-3.03,28.64,33.98,30.44,37.25c10.12,18.35,15.05,33.84,16.63,38.97c5.4,17.47,21.28,71.12,0.48,118.1
+                	                c-4.72,10.65-7.9,13.25-10.69,13.31c-9.93,0.22-20.38-31.53-22.81-58.22c-1.33-14.57,0.46-27.93,4.04-54.65
+                	                c3.98-29.73,8.46-43.85,9.74-47.76c0.83-2.53,6.11-18.35,16.87-36.59c5.39-9.14,8.82-13.23,12.56-16.65
+                	                c2.16-1.97,13.15-12.06,23.32-12.57c20.32-1.03,33.44,34.36,38.26,47.05c0,0,4.66,12.27,3.56,29.23c-0.33,5.12-1.17,9.48-4.51,11.88
+                	                c-3.77,2.71-8.69,1.53-9.62,1.3c-5.94-1.43-9.3-6.51-11.52-9.86c-3.65-5.5-2.45-7.15-5.7-11.17c-3.64-4.5-6.93-4.65-11.64-7.84
+                	                c-6.92-4.68-9.98-11.22-13.07-17.82c-5.51-11.79-5.38-22.69-4.94-28.23" />
+                                    <path id="svgAni02" d="M159.86,316.87c3.87,16.87,6.11,28.88,7.49,38.14c0.25,1.66,0.56,3.88,2.32,5.52
+                	                c6.54,6.13,25.89-1.76,38.32-12.3c8.96-7.61,13.59-15.97,17.11-22.46c10.65-19.65,11.25-35.64,13.9-35.47
+                	                c3.92,0.26-1.07,34.89,18.53,62.02c9.1,12.6,15.23,12.12,16.57,11.94c1.99-0.27,7-1.71,11.94-13.54
+                	                c13.1-31.36-1.39-70.83,1.25-71.64c2.41-0.74,9.99,33.5,37.71,54.76c6.24,4.79,11.87,8.99,17.18,7.44
+                	                c13.57-3.96,14.5-42.33,12.65-77.7" />
+                                    <path id="svgAni03" d="M353.58,237.21c1.83,12.2,5.4,29.98,13.01,50.44c8.48,22.8,19.73,42.85,22.28,41.88
+                	                c2.42-0.92-5.16-19.95-6.77-52.93c-1.78-36.42,6.13-40.18,7.84-40.81c1.45-0.54,2.78-0.42,3.56-0.36
+                	                c7.25,0.61,11.95,9.14,17.46,20.14c12.05,24.07,10.9,25.98,16.76,32.97c2.35,2.8,13.63,16.27,23.52,13.54
+                	                c0.97-0.27,3.47-1.12,6.24-4.46c9.72-11.74,2.03-29.3,1.25-58.81c-0.16-6.04-0.09-14.66,1.07-25.13" />
+                                    <path id="svgAni04" d="M509.52,143.11c-6.11-5.03-16.34-1.5-17.82-1.07c-19.71,5.7-28.78,36.21-26.02,58.81
+                	                c0.19,1.57,3.54,26.75,17.62,32.49c1.31,0.54,5.43,2.21,10.36,1.19c5.99-1.24,9.57-5.72,11.43-8.05
+                	                c8.37-10.49,5.46-23.28,6.94-52.91C512.99,154.6,514.73,147.39,509.52,143.11z" />
+                                    <path id="svgAni05" d="M539.64,180.89" />
+                                    <path id="svgAni06" d="M588.73,134.81c-0.26,14.1,0.18,34.69,3.79,59.21c6.01,40.89,19.95,86.73,28.4,85.78
+                	                c3.04-0.34,5.3-10.39,10.97-30.17c2.61-9.09,4.29-17.1,5.43-23.66c0,0,9.88-57.16-11.05-93.92c-5.59-9.82-10.96-12.37-14.66-13.16
+                	                c-5.09-1.08-11.29,0.27-15.46,4.07c-7.69,7-6.43,20.39-7.66,20.32c-0.96-0.06,0.12-8.02-2.89-9.58
+                	                c-4.14-2.14-13.42,9.28-16.71,12.25c-17.6,15.86-24.8,33.47-33.33,54.36c-10.35,25.34-13.8,45.85-14.97,53.82
+                	                c-2.21,15.08-2.2,25.83-2.18,38.5c0.05,36.83,6.07,48.23,12.16,53.11c1.24,1,4.66,3.73,9.27,3.74c6.17,0.01,10.71-4.87,12.48-6.77
+                	                c12.48-13.42,17.96-51.41,9.69-93.64c-0.77-3.94-2.21-10.56-4.5-18.7c-5.45-19.4-12.01-32.75-20.17-49.13
+                	                c-5.06-10.17-20.19-40.24-24.24-38.67c-0.95,0.37-1.06,2.37-1.01,4" />
+                                    <path id="svgAni07" d="M619.04,279.31c33.85,67.96,43.73,84.04,45.36,83.3c1.89-0.86-5.39-25.25-11.27-65.93
+                	                c-1.38-9.52-3.5-25.68,5.57-36.13c1.26-1.46,5.07-5.85,9.98-5.7c6.7,0.2,11.29,8.71,14.97,15.33c23.2,41.73,33.29,49.97,39.21,53.82
+                	                c4.14,2.7,13.27,8.65,20.32,5.35c7.49-3.51,8.58-15.6,9.27-23.17c2.07-22.89-8.63-28.18-3.92-44.91c2.42-8.6,6.85-12.92,4.82-20.35
+                	                c-1.38-5.03-4.3-6.31-8.38-12.79c-3.95-6.26-5.26-11.48-7.49-20.32c-1.95-7.75-4.05-19.45-3.56-34.22" />
+                                    <path id="svgAni08" d="M753.33,240.91c7.8,7.32,12.48,7.57,15.14,6.81c12.15-3.47,14.62-37.35,13.9-57.03
+                	                c-0.53-14.67-2.95-24.58-0.71-25.31c5.33-1.73,21.88,53.63,48.56,58.19c4.73,0.81,7.46-0.38,8.44-0.87
+                	                c6.47-3.25,8.29-12.54,9.3-35.93c0.94-21.8,1.46-34.04,0.26-42.35c-0.17-1.16-0.37-2.25-0.61-3.27
+                	                c-4.09-17.47-10.31-20.53-18.89-40.63c-4.62-10.83-10.18-27.18-12.48-49.19" />
+                                    <path id="svgAni09" d="M858.3,52.75" />
+                                    <path id="svgAni10" d="M848.43,146.09c-1.89-10.78-3.8-26.86-2.61-46.29c0.28-4.59,3.02-46.07,12.48-47.05
+                	                c1.93-0.2,4.4,1.25,21.74,33.15c11.52,21.19,15.95,30.53,25.66,32.79c1.17,0.27,8.76,2.04,14.23-2.15
+                	                c8.81-6.74,3.79-22.51,3.06-54.88c-0.27-11.8,0.13-21.55,0.53-28.16" />
+                                </svg>
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomBox">
+                    <div class="title">
+                        <p>I'm grateful for the opportunity to share my portfolio with you</p>
+                    </div>
+                    <div class="text">
+                        <p>Developed using Html,CSS,JavaScript</p>
+                        <p>Copyright©2025 Younghun Kim All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> <!-- .wrap 닫힘 -->
+    <script src="js/script.js"></script>
+</body>
+</html>
