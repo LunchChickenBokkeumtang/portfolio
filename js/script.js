@@ -32,28 +32,55 @@ function animateHomeImage() {
   const span = document.querySelector('span.Mgleft');
   if (!img) return;
 
-  // ① 이미지 애니메이션
-  gsap.to(img, {
-    duration: 1.8,
-    x: 490,
-    y: 60,
-    width: 520,
-    height: 520,
-    ease: 'power2.out',
-    borderRadius: 40
-  });
+  // ① matchMedia 컨텍스트 생성
+  const mm = gsap.matchMedia();
 
-  // ② span 애니메이션 (delay를 줘서 img 애니메이션 중간에 실행)
-  if (span) {
-    gsap.to(span, {
-      duration: 0.8,
-      opacity: 0,
-      margin: 0,
-      ease: 'power1.out',
-      delay: 1 // 이미지 시작 후 1초 뒤 바로 작동 (이미지 끝나기 0.8초 전에)
+  // ② 겹치지 않는 브레이크포인트 정의
+  mm.add({
+    desktop      : "(min-width: 1367px)",                      // 1367px 이상
+    largeTablet  : "(min-width: 1181px) and (max-width: 1366px)", // 1181px ~ 1366px
+    standardTablet: "(min-width: 1025px) and (max-width: 1180px)",// 1025px ~ 1180px
+    smallTablet  : "(min-width: 768px) and (max-width: 1024px)",  // **768px ~ 1024px**
+    mobile       : "(max-width: 767px)"                          // 767px 이하
+  }, (context) => {
+    const { desktop, largeTablet, standardTablet, smallTablet } = context.conditions;
+    let vars;
+
+    if (desktop) {
+      vars = { x: 490, y: 60,  width: 520, height: 520, borderRadius: 40 };
+    } else if (largeTablet) {
+      vars = { x: 400, y: 50,  width: 360, height: 360, borderRadius: 40 };
+    } else if (standardTablet) {
+      vars = { x: 350, y: 50,  width: 340, height: 340, borderRadius: 40 };
+    } else if (smallTablet) {        // <= 1024px
+      vars = { x: 200, y: -100, width: 280, height: 280, borderRadius: 40 };
+    } else { // mobile
+      vars = { x: 120, y: 15,  width: 280, height: 280, borderRadius: 20 };
+    }
+
+    // ③ img 애니메이션
+    gsap.to(img, {
+      duration: 1.8,
+      ...vars,
+      ease: 'power2.out'
     });
-  }
+
+    // ④ span 애니메이션
+    if (span) {
+      gsap.to(span, {
+        duration: 0.8,
+        opacity: 0,
+        margin: 0,
+        ease: 'power1.out',
+        delay: 1
+      });
+    }
+
+    // (자동으로 컨텍스트 정리됨)
+    return () => {};
+  });
 }
+
 
 
 
@@ -168,7 +195,8 @@ function startScrollTriggerAnimation() {
       scrub:      true,
       pin:        true,
       pinSpacing: true,
-      markers:    false
+      markers:    false,
+      onLeave: () => {}
     }
   })
   .to(".home-titleBox", { opacity: 0, y: -50, ease: "power1.out" })
@@ -187,7 +215,7 @@ document.addEventListener('DOMContentLoaded', init);
 window.addEventListener('load', () => {
   window.scrollTo(0, 0);
   document.body.style.overflow = 'hidden';
-  setTimeout(animateIntroToHome, 1000);
+  setTimeout(animateIntroToHome, 3000);
 });
 
 

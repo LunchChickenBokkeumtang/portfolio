@@ -9,7 +9,7 @@ li {list-style: none;}
 address, em, i {font-style: normal;}
 a:focus {outline: none}
 button:focus {outline: none}
-html {scroll-behavior: smooth;}
+html {scroll-behavior: smooth; width: 100%; overflow-x: hidden; overflow-y: auto;}
 
 @font-face {
     font-family: 'Pretendard';
@@ -102,10 +102,10 @@ html {scroll-behavior: smooth;}
 
 /* bg 색 #001 (남색) 나쁘지않음 */
 
-body {font-family: 'Poppins',sans-serif; margin: 0; padding: 0; background: #000; color: #fff; overflow-x: hidden;}
+body {font-family: 'Poppins',sans-serif; margin: 0; padding: 0; background: #000; color: #fff; overflow-x: hidden; width: 100%;;}
 
 section {background: #000; color: #fff;}
-.wrap {position: relative; }
+.wrap {position: relative; width: 100%;}
 .en1 {font-family: 'SortsMillGoudy',sans-serif; font-weight: 300;}
 .en2 {font-family: 'Trirong',sans-serif; font-weight: 300;}
 
@@ -114,7 +114,7 @@ section {background: #000; color: #fff;}
 .intro.hidden {opacity: 1 !important; visibility: hidden; pointer-events: none;}
 .intro .intro-inner {position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
 .intro-title span{display: inline-block; font-size: 100px; transform: translateY(0); opacity: 1 !important; transition: all 1s ease;}
-.intro .char {position: relative; display: inline-block; z-index: 100; opacity: 1 !important; pointer-events: none; transition: transform 1s ease; backface-visibility: visible; will-change: trasform, opacity;}
+.intro .char {position: relative; display: inline-block; z-index: 100; opacity: 1 !important; pointer-events: none; transition: transform 1s ease; backface-visibility: visible; will-change: transform, opacity;}
 
 
 /* home */
@@ -124,7 +124,7 @@ section {background: #000; color: #fff;}
 .home .home-inner h2 {font-size: 100px; margin-top: -40px;}
 .home .home-inner .line01 {margin-left: 172px; margin-top: 0;}
 .home .empty {overflow: hidden;}
-.home .fixed-image img{position: absolute; top: 47%; left: 30.5vw; width: 230px; height: 90px; object-fit: cover; transform: translate(0, -50%); z-index: 10; opacity: 1; filter: brightness(80%);}
+.home .fixed-image img{position: absolute; top: 47%; left: calc(50% - 230px); width: 230px; height: 90px; object-fit: cover; transform: translate(0, -50%); z-index: 10; opacity: 1; filter: brightness(80%);}
 .home .home-inner .line02 span.Mgleft {margin-left: 250px;}
 .home .home-inner .line03 {margin-left: 100px;}
 .home .home-inner .line04 {margin-left: 70px;}
@@ -142,6 +142,51 @@ section {background: #000; color: #fff;}
 .home .scroll-textBox .title {margin-bottom: 10px; display: inline-block; font-size: 105px;}
 .home .scroll-textBox .textBox .tit {margin-bottom: 12px; font-size: 26px;}
 .home .scroll-textBox .textBox .txt {color: #606060; line-height: 1.4;}
+
+
+
+
+
+
+
+/* 홈 반응형 */
+
+@media (max-width: 1366px) {
+  .intro-title span {font-size: 80px;}
+  .home .fixed-image img {
+    top: 49%;
+    left: calc(50% - 180px);
+  }
+  .home .home-inner {width: 95%;}
+  .home .home-inner h2 {font-size: 80px;}
+}
+
+@media (max-width: 1180px) {
+    .intro-title span {font-size: 70px;}
+    .home .fixed-image img {
+    top: 49%;
+    left: calc(50% - 140px);
+    width: 200px;
+    height: 80px;
+  }
+  .home .home-inner h2 {font-size: 70px;}
+}
+
+@media (max-width: 1024px) {
+    .home .fixed-image img {
+    top: 49%;
+    left: calc(50% - 60px);
+    width: 200px;
+    height: 70px;
+  }
+}
+
+
+
+
+
+
+
 
 /* clock */
 .clockBox {display: flex; justify-content: center; align-items: center; position: absolute; top: 15px; left: 50%; transform: translateX(-50%); font-family: 'Pretendard' , sans-serif; font-weight: 300;}
@@ -326,7 +371,7 @@ section {background: #000; color: #fff;}
 
 
 /* projects */
-.projects {height: 100vh; margin-top: 200px;}
+.projects {height: 100vh; margin-top: 200px; overflow: hidden;}
 .projects .inner {width: 82.5%; margin: 0 auto; margin-top: 100px;}
 .projects .topBox h2 {font-size: 105px; font-weight: 300; margin-bottom: -16px;}
 .projects .topBox .txt {font-family: 'Pretendard',sans-serif; font-size: 16px; color: #606060; margin-left: 14px;}
