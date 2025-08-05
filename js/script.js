@@ -55,7 +55,7 @@ function animateHomeImage() {
     } else if (smallTablet) {        // <= 1024px
       vars = { x: 200, y: -100, width: 280, height: 280, borderRadius: 40 };
     } else { // mobile
-      vars = { x: 120, y: 15,  width: 280, height: 280, borderRadius: 20 };
+      vars = { x: -40, y: -20,  width: 110, height: 110, borderRadius: 10 };
     }
 
     // ③ img 애니메이션
@@ -546,11 +546,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // 2) 네비 바 외부 클릭 시 .active 모두 제거
-  document.addEventListener('click', function(e) {
-    if (!nav.contains(e.target)) {
-      menuItems.forEach(item => item.classList.remove('active'));
-    }
-  });
+  // document.addEventListener('click', function(e) {
+  //   if (!nav.contains(e.target)) {
+  //     menuItems.forEach(item => item.classList.remove('active'));
+  //   }
+  // });
 
   // 3) Intro 섹션 관찰 → Intro 보이면 숨김, 벗어나면 보이기
   const introSection = document.querySelector('#intro');

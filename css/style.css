@@ -110,7 +110,7 @@ section:not(.intro):not(.home) {
   color: #fff;
   margin: 500px 0 0 !important;
 }
-.wrap {position: relative; width: 100%;}
+.wrap {position: relative; width: 100%; overflow: hidden;}
 .en1 {font-family: 'SortsMillGoudy',sans-serif; font-weight: 300;}
 .en2 {font-family: 'Trirong',sans-serif; font-weight: 300;}
 
@@ -189,6 +189,64 @@ section:not(.intro):not(.home) {
   }
 }
 
+@media (max-width: 480px) {
+  .home .home-inner h2 {
+    font-size: 30px;
+  }
+  .intro-title span {
+    font-size: 30px;
+  }
+  .home .fixed-image img {
+    width: 40px;
+    height: 20px;
+    left: calc(80% - 0px);
+    top: 50%;
+    display: none;
+  }
+  .home .home-titleBox {
+    line-height: 3;
+    width: 100%;
+    margin-top: 0;
+  }
+  .home .home-inner .line02 span.Mgleft {
+    margin-left: 10px;
+  }
+  .home .home-inner .home-line.line02 {
+    display: flex;
+    justify-content: start;
+    text-align: center;
+    width: 100%;
+    margin-left: 0px;
+  }
+  .home .home-inner .line01 {
+    margin-left: 0px;
+  }
+  .home .home-inner .line03 {
+    margin-left: 0px;
+  }
+  .home .home-inner .line04 {
+    margin-left: 0px;
+  }
+  .home .scroll-textBox .title {
+    font-size: 40px;
+  }
+  .home .scroll-textBox {
+    margin-top: 0px;
+  }
+  .home .scroll-textBox .textBox .tit {
+    font-size: 22px;
+  }
+  .home .scroll-textBox .textBox .txt {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+  .scrollDownBox {
+    scale: 0.8;
+    right: 5% !important;
+    bottom: 10% !important;
+  }
+}
+
 
 
 
@@ -247,6 +305,105 @@ section:not(.intro):not(.home) {
     0% {transform: translateX(350px); opacity: 0;}
     30% {transform: translateX(400px); opacity: 0;}
 }
+
+
+
+/* work 반응형 */
+@media (max-width: 1366px) {
+  .work .inner {
+    width: 95%;
+  }
+  .work .topBox h2 {
+    font-size: 85px;
+  }
+  .work .bottomBox {
+    width: 90%;
+    margin: 170px auto 0px 150px;
+  }
+  section:not(.intro):not(.home) {
+    margin-top: 300px !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .work .bottomBox {
+    margin-left: 100px;
+  }
+  .work .bottomBox .container .rightBox {
+    margin-left: 240px;
+  }
+}
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 480px) {
+  section:not(.intro):not(.home) {
+    margin-top: 200px !important;
+  }
+  .work .topBox h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .work .topBox .txt {
+    margin-left: 0;
+    display: flex;
+    justify-content: start;
+    width: 95%;
+  }
+  .work .bottomBox {  
+    margin: 100px auto 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .work .bottomBox .container {
+    height: 200px;
+  }
+  .work .bottomBox .container .circle {
+    margin-right: 10px;
+    width: 20px !important;
+    height: 20px !important;
+    flex: 0 0 auto;
+  }
+  .work .bottomBox .container .circle .line {
+    max-height: 300px;
+  }
+  .work .bottomBox .container .circle .inner-dot {
+    width: 13px;
+    height: 13px;
+  }
+  .work .bottomBox .container .year {
+    font-size: 20px;
+  }
+  .work .bottomBox .container .rightBox {
+    margin-left: 10%;
+  }
+  .work .bottomBox .container .textBox {
+    margin-bottom: 10px;
+  }
+  .work .bottomBox .container .about {
+    font-size: 14px;
+  }
+  .work .bottomBox .container .name {
+    font-size: 20px;
+  }
+  .work .bottomBox .container .rightBox .img {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
 
 
 /* hobbies */
@@ -377,6 +534,58 @@ section:not(.intro):not(.home) {
   } */
 
 
+/* hobby 반응형 */
+/* work 반응형 */
+@media (max-width: 1366px) {
+  .hobbies .inner {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .hobbies .topBox {
+    margin: 0;
+  }
+  .hobbies-item .img img {
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 1180px) {
+  .hobbies-item .img img {
+    max-width: 75%;
+  }
+  .hobbies-gallery {
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hobbies-item .img img {
+    max-width: 70%;
+  }
+  .hobbies-gallery.cluster .hobbies-item:nth-child(6) {
+    top: 25% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hobbies .topBox h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .hobbies .topBox .txt {
+    white-space: pre-line;
+    width: 100%;
+  }
+  .hobbies-gallery {
+    margin: 0;
+    height: 70%;
+    top: 25%;
+  }
+  .hobbies-item .img img {
+    max-width: 60%;
+  }
+}
+
 
 /* projects */
 .projects {height: 100vh; margin-top: 200px; overflow: hidden;}
@@ -391,7 +600,7 @@ section:not(.intro):not(.home) {
 
 
 /* swiper */
-.projects .mySwiper {padding-top: 100px; position: relative; cursor: inherit;}
+.projects .mySwiper {padding-top: 100px; position: relative; cursor: inherit; width: 100%;}
 .projects .mySwiper.motion {animation: rightBox; animation-duration: 1s;}
 @keyframes rightBox {
     0% {transform: translateX(350px); opacity: 0;}
@@ -689,8 +898,8 @@ section:not(.intro):not(.home) {
 .contact {height: 90vh;}
 .contact .inner {width: 82.5%; margin: 0 auto; margin-top: 100px; position: relative; height: 100%;}
 .contact .topBox {display: inline-block;}
-.contact .topBox h2 {font-size: 105px; font-weight: 300; margin-bottom: 100px;}
-.contact .container .textBox .list {display: flex; width: 50%; line-height: 50px; margin-left: 15px;}
+.contact .topBox h2 {font-size: 105px; font-weight: 300; margin-bottom: 50px;}
+.contact .container .textBox .list {display: flex; width: 50%; line-height: 80px; margin-left: 15px;}
 .contact .container .textBox .list .logoBox {margin-right: 30px;}
 .contact .container .textBox .list .subject {font-size: 22px; margin-right: 100px;}
 .contact .container .textBox .list .detail {font-size: 24px; color: #dedede;}
@@ -698,7 +907,7 @@ section:not(.intro):not(.home) {
 .contact .container .textBox .imgBox .mainImg {width: 100%;}
 .contact .container .textBox .imgBox .mainImg img{border-radius: 15px; filter: brightness(0.9); width: 100%;}
 .contact .container .textBox svg {position: absolute; bottom: -30%; right: -50%;}
-.contact .bottomBox {margin-top: 250px; margin-left: 5px;}
+.contact .bottomBox {margin-top: 220px; margin-left: 5px;}
 .contact .bottomBox .text {color: #606060; line-height: 1.2; margin-top: 20px; }
 
 
@@ -735,7 +944,7 @@ section:not(.intro):not(.home) {
 
 
 /* naviBox */
-.main-nav {position: fixed; bottom: 50px; left: 50%;  z-index: 1000; background: #1d1d1d; border-radius: 15px; width: 380px; height: 50px; transform: translate(-50%, calc(150% + 50px)); transition: transform 0.3s ease-in-out;}
+.main-nav {position: fixed; bottom: 25px; left: 50%;  z-index: 1000; background: #1d1d1d; border-radius: 15px; width: 380px; height: 50px; transform: translate(-50%, calc(150% + 50px)); transition: transform 0.3s ease-in-out;}
 .main-nav.visible {transform: translate(-50%, 0);}
 .main-nav ul {margin: 0 auto; padding: 0; display: flex; justify-content: space-between; width: 100%; line-height: 50px; height: 57px;}
 .main-nav ul li {width: 20%; text-align: center; align-items: center;}
