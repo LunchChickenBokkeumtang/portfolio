@@ -9,7 +9,7 @@ li {list-style: none;}
 address, em, i {font-style: normal;}
 a:focus {outline: none}
 button:focus {outline: none}
-html {scroll-behavior: smooth; width: 100%; overflow-x: hidden; overflow-y: auto;}
+html {scroll-behavior: smooth; width: 100%; overflow-x: hidden; user-select: none;}
 
 @font-face {
     font-family: 'Pretendard';
@@ -102,9 +102,14 @@ html {scroll-behavior: smooth; width: 100%; overflow-x: hidden; overflow-y: auto
 
 /* bg 색 #001 (남색) 나쁘지않음 */
 
-body {font-family: 'Poppins',sans-serif; margin: 0; padding: 0; background: #000; color: #fff; overflow-x: hidden; width: 100%;;}
+body {font-family: 'Poppins',sans-serif; margin: 0; padding: 0; background: #000; color: #fff; overflow-x: hidden; width: 100%; letter-spacing: -0.02rem;}
 
 section {background: #000; color: #fff;}
+section:not(.intro):not(.home) {
+  background: #000;
+  color: #fff;
+  margin: 500px 0 0 !important;
+}
 .wrap {position: relative; width: 100%;}
 .en1 {font-family: 'SortsMillGoudy',sans-serif; font-weight: 300;}
 .en2 {font-family: 'Trirong',sans-serif; font-weight: 300;}
@@ -178,6 +183,9 @@ section {background: #000; color: #fff;}
     left: calc(50% - 60px);
     width: 200px;
     height: 70px;
+  }
+  .home .home-titleBox {
+    line-height: 1.7;
   }
 }
 
@@ -375,7 +383,7 @@ section {background: #000; color: #fff;}
 .projects .inner {width: 82.5%; margin: 0 auto; margin-top: 100px;}
 .projects .topBox h2 {font-size: 105px; font-weight: 300; margin-bottom: -16px;}
 .projects .topBox .txt {font-family: 'Pretendard',sans-serif; font-size: 16px; color: #606060; margin-left: 14px;}
-.projects .topBox.motion {animation: topBox; animation-duration: 1s;}
+.projects .topBox.motion {animation: topBox; animation-duration: 0.8s;}
 @keyframes topBox {
     0% {transform: translateX(-200px); opacity: 0;}
     30% {transform: translateX(-200px); opacity: 0;}
@@ -383,8 +391,8 @@ section {background: #000; color: #fff;}
 
 
 /* swiper */
-.projects .mySwiper {padding-top: 100px; position: relative;}
-.projects .mySwiper.motion {animation: rightBox; animation-duration: 1.5s;}
+.projects .mySwiper {padding-top: 100px; position: relative; cursor: inherit;}
+.projects .mySwiper.motion {animation: rightBox; animation-duration: 1s;}
 @keyframes rightBox {
     0% {transform: translateX(350px); opacity: 0;}
     30% {transform: translateX(400px); opacity: 0;}
@@ -393,16 +401,17 @@ section {background: #000; color: #fff;}
 .projects .swiper-slide .imgBox {clip-path: inset(18% 18% 18% 18% round 0%); transition: clip-path 0.6s, margin-top 0.6s; position: relative; background-color: transparent !important;}
 .projects .swiper-slide .imgBox img {width: 100%; filter: brightness(0.4);}
 .projects .swiper-slide .imgBox .skill {display: flex; position: absolute; top: 1%; right: 0%;}
-.projects .swiper-slide .imgBox .skill li {margin-right: 10px;}
-.projects .swiper-slide:nth-child(2n) {margin-top: 30px;}
+.projects .swiper-slide .imgBox .skill li {margin-right: 10px; max-width: 49px; max-height: 49px;}
+.projects .swiper-slide .imgBox .skill li img {width: 100%; height: auto;}
 .projects .swiper-slide .textBox {position: absolute; z-index: 2; left: -25%; bottom: 0%; opacity: 0; transition: opacity 0.4s, left 0.4s; transition-delay: 0.2s; border: none; background-color: transparent !important;}
 .projects .swiper-slide .textBox span {display: block; line-height: 1;}
 .projects .swiper-slide .textBox .title {font-size: 1vw; color: #fff;}
+.projects .swiper-slide .textBox .title p {font-family: 'pretendard',sans-serif; font-weight: normal; font-size: 1vw; display: block; text-align: center;}
 .projects .swiper-slide .textBox .title .en1{font-size: 3vw;}
 
 
 .projects .swiper-slide.swiper-slide-active .imgBox {clip-path: inset(0% 0% 0% 0% round 0%);}
-.projects .swiper-slide.swiper-slide-active .imgBox img {filter: brightness(0.7);}
+.projects .swiper-slide.swiper-slide-active .imgBox img {filter: brightness(0.8);}
 .projects .swiper-slide.swiper-slide-active .textBox {opacity: 1; left: -20%;}
 
 
@@ -635,8 +644,8 @@ section {background: #000; color: #fff;}
 .design .textBox {display: flex; position: relative; justify-content: end; margin-top: 200px; align-items: center;}
 .design .textBox .txt {font-size: 16px; font-weight: bold; color: #606060;}
 .design .textBox .skill {display: flex; justify-content: space-between; margin-left: 30px;}
-.design .textBox .skill li {margin-left: 10px;}
-.design .textBox .skill li img {filter: brightness(0.8);}
+.design .textBox .skill li {margin-left: 10px; max-width: 49px; max-height: 49px;}
+.design .textBox .skill li img {filter: brightness(0.8); width: 100%; height: auto;}
 
 
 .design .textBox .txt.motion {animation:  slit-in-horizontal; animation-duration: 0.5s;}
@@ -730,6 +739,7 @@ section {background: #000; color: #fff;}
 .main-nav.visible {transform: translate(-50%, 0);}
 .main-nav ul {margin: 0 auto; padding: 0; display: flex; justify-content: space-between; width: 100%; line-height: 50px; height: 57px;}
 .main-nav ul li {width: 20%; text-align: center; align-items: center;}
-.main-nav ul li img {transition: transform 0.4s ease; filter: brightness(0.5);}
+.main-nav ul li a {width: 100%;}
+.main-nav ul li a img {transition: transform 0.4s ease; filter: brightness(0.5); width: 60%;}
 .main-nav ul li:hover img{transform: translateY(-20px) scale(1.2); filter: brightness(1.2);}
 .main-nav ul li.active img{transform: translateY(-20px) scale(1.2); filter: brightness(1.2);}
