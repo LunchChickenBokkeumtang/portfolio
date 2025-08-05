@@ -295,23 +295,45 @@ window.addEventListener('load', () => {
 
 // swiper
 var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 4,
-  spaceBetween: 75,
   centeredSlides: true,
   pagination: {
     el: ".swiper-pagination",
     type: "fraction",
-    formatFractionCurrent: function (number) {
-      return ('0' + number).slice(-2);
-    },
-    formatFractionTotal: function (number) {
-      return ('0' + number).slice(-2);
-    },
+    formatFractionCurrent: number => ('0' + number).slice(-2),
+    formatFractionTotal:   number => ('0' + number).slice(-2),
   },
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+
+  // ← 여기부터!
+  breakpoints: {
+    // 화면 너비가 320px 이상일 때
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      centeredSlides: false,  // 모바일엔 중앙정렬 끄기
+    },
+    // 화면 너비가 640px 이상일 때
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+      centeredSlides: false,
+    },
+    // 화면 너비가 1024px 이상일 때
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 40,
+      centeredSlides: true,
+    },
+    // 화면 너비가 1440px 이상일 때
+    1440: {
+      slidesPerView: 4,
+      spaceBetween: 75,
+      centeredSlides: true,
+    },
+  }
 });
 
 

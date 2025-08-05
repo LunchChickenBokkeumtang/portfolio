@@ -501,7 +501,7 @@ section:not(.intro):not(.home) {
   /*------------------------*/
   
   /* 데스크탑 → 태블릿 전환 (1200px 이하) */
-  /* @media (max-width: 1200px) {
+  @media (max-width: 1200px) {
     :root {
       --hobby-1-top:   5%;
       --hobby-1-left:  50%;
@@ -518,10 +518,10 @@ section:not(.intro):not(.home) {
       --hobby-7-top:  15%;
       --hobby-7-left:  50%;
     }
-  } */
+  }
   
   /* 태블릿 → 모바일 전환 (768px 이하) */
-  /* @media (max-width: 768px) {
+  @media (max-width: 768px) {
     :root {
       --hobby-1-top:  10%;
       --hobby-1-left: 50%;
@@ -538,11 +538,10 @@ section:not(.intro):not(.home) {
       --hobby-7-top:  20%;
       --hobby-7-left: 50%;
     }
-  } */
+  }
 
 
 /* hobby 반응형 */
-/* work 반응형 */
 @media (max-width: 1366px) {
   .hobbies .inner {
     width: 95%;
@@ -586,24 +585,80 @@ section:not(.intro):not(.home) {
   .hobbies .topBox .txt br {
     display: none;
   }
+}
+@media (max-width: 480px) {
+  /* 1) 모바일 전용 위치 변수 */
+    :root {
+      --hobby-1-top:  10%;
+      --hobby-1-left: 50%;
+      --hobby-2-top:  25%;
+      --hobby-2-left: 75%;
+      --hobby-3-top:  45%;
+      --hobby-3-left: 80%;
+      --hobby-4-top:  60%;
+      --hobby-4-left: 50%;
+      --hobby-5-top:  50%;
+      --hobby-5-left: 25%;
+      --hobby-6-top:  30%;
+      --hobby-6-left: 15%;
+      --hobby-7-top:  20%;
+      --hobby-7-left: 50%;
+    }
   .hobbies-gallery {
-    margin: 0;
-    height: 70%;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
+    position: absolute;
+    top: 15% !important;
+    left: 0% !important;
+    width: 100% !important;
+    transform: none !important;
+    margin: 0 !important;
+    overflow: visible !important;
   }
-  .hobbies-item .img img {
-    max-width: 60%;
+
+  /* 3) spread 상태에서 각 아이템 위치 지정 */
+  .hobbies-gallery.cluster .hobbies-item:nth-child(1) {
+    top:  var(--hobby-1-top);
+    left: var(--hobby-1-left);
+    transform: translate(0, 0);
   }
-  .hobbies-gallery .hobbies-item:nth-child(4) {
-    top: 60% !important;
-    left: 50% !important;
+  .hobbies-gallery.cluster .hobbies-item:nth-child(2) {
+    top:  var(--hobby-2-top);
+    left: var(--hobby-2-left);
+    transform: translate(0, 0);
   }
-  .hobbies-gallery .hobbies-item:nth-child(5) {
-    top: 80% !important;
-    left: 70% !important;
+  .hobbies-gallery.cluster .hobbies-item:nth-child(3) {
+    top:  var(--hobby-3-top);
+    left: var(--hobby-3-left);
+    transform: translate(0, 0);
+  }
+  .hobbies-gallery.cluster .hobbies-item:nth-child(4) {
+    top:  var(--hobby-4-top);
+    left: var(--hobby-4-left);
+    transform: translate(0, 0);
+  }
+  .hobbies-gallery.cluster .hobbies-item:nth-child(5) {
+    top:  var(--hobby-5-top);
+    left: var(--hobby-5-left);
+    transform: translate(0, 0);
+  }
+  .hobbies-gallery.cluster .hobbies-item:nth-child(6) {
+    top:  var(--hobby-6-top);
+    left: var(--hobby-6-left);
+    transform: translate(0, 0);
+  }
+  .hobbies-gallery.cluster .hobbies-item:nth-child(7) {
+    top:  var(--hobby-7-top);
+    left: var(--hobby-7-left);
+    transform: translate(0, 0);
+  }
+
+  /* .hobbies-gallery.cluster .hobbies-item:nth-child(5) {
+    display: none;
+  } */
+  .hobbies-gallery.cluster .hobbies-item:nth-child(3) {
+    display: none;
+  }
+  .hobbies-gallery.cluster .hobbies-item:nth-child(2) {
+    display: none;
   }
 }
 
@@ -771,6 +826,78 @@ section:not(.intro):not(.home) {
 
 .projects .swiper-button-next {position: absolute; top: 3%; right: 10%;}
 .projects .swiper-button-prev {position: absolute; top: 3%; left: 82%;}
+
+
+
+
+/* projects 반응형 */
+@media (max-width: 1366px) {
+ .projects .inner {
+  width: 95%
+ }
+ .projects .topBox .txt {
+  margin: 0;
+ }
+ .projects .swiper-slide .textBox .title p {
+  font-size: 2vw;
+ }
+ .swiper-button-prev .button {
+  display: none;
+ }
+ .swiper-button-next .button {
+  display: none;
+ }
+}
+
+@media (max-width: 1180px) {
+  .projects .topBox h2 {
+    font-size: 80px;
+  }
+  .projects .swiper-slide .textBox .title {
+    margin-bottom: 10%;
+  }
+}
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 480px) {
+  .projects .topBox h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .projects .topBox .txt br {
+    display: none;
+  }
+  .projects .mySwiper {
+    padding-top: 50px;
+  }
+  .projects .swiper-slide .textBox {
+    left: 5% !important;
+    bottom: 10% !important;
+  }
+  .projects .swiper-slide .textBox .title .en1 {
+    font-size: 30px;
+  }
+  .projects .swiper-slide .textBox .title p {
+    font-size: 16px;
+  }
+  .projects .swiper-slide .imgBox img {
+    filter: brightness(0.7);
+  }
+  .projects .swiper-pagination-fraction {
+    bottom: 5%;
+  }
+  .projects .swiper-slide .imgBox .skill li {
+    max-width: 29px;
+    max-height: 29px;
+  }
+}
+
+
+
+
 
 
 /* design */
