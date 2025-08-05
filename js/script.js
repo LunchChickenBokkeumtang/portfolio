@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', init);
 window.addEventListener('load', () => {
   window.scrollTo(0, 0);
   document.body.style.overflow = 'hidden';
-  setTimeout(animateIntroToHome, 1000);
+  setTimeout(animateIntroToHome, 500);
 });
 
 

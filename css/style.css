@@ -9,7 +9,7 @@ li {list-style: none;}
 address, em, i {font-style: normal;}
 a:focus {outline: none}
 button:focus {outline: none}
-html {scroll-behavior: smooth; width: 100%; overflow-x: hidden; user-select: none;}
+html {scroll-behavior: smooth; width: 100%; user-select: none;}
 
 @font-face {
     font-family: 'Pretendard';
@@ -231,7 +231,8 @@ section:not(.intro):not(.home) {
     font-size: 40px;
   }
   .home .scroll-textBox {
-    top: 40%;
+    top: 50%;
+    margin-top: 80px;
   }
   .home .scroll-textBox .textBox .tit {
     font-size: 22px;
@@ -590,7 +591,7 @@ section:not(.intro):not(.home) {
   /* 1) 모바일 전용 위치 변수 */
     :root {
       --hobby-1-top:  10%;
-      --hobby-1-left: 50%;
+      --hobby-1-left: 55%;
       --hobby-2-top:  25%;
       --hobby-2-left: 75%;
       --hobby-3-top:  45%;
@@ -606,7 +607,7 @@ section:not(.intro):not(.home) {
     }
   .hobbies-gallery {
     position: absolute;
-    top: 15% !important;
+    top: 20% !important;
     left: 0% !important;
     width: 100% !important;
     transform: none !important;
@@ -892,6 +893,9 @@ section:not(.intro):not(.home) {
   .projects .swiper-slide .imgBox .skill li {
     max-width: 29px;
     max-height: 29px;
+  }
+  .projects {
+    overflow: visible;
   }
 }
 
