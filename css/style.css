@@ -231,7 +231,7 @@ section:not(.intro):not(.home) {
     font-size: 40px;
   }
   .home .scroll-textBox {
-    margin-top: 0px;
+    top: 45%;
   }
   .home .scroll-textBox .textBox .tit {
     font-size: 22px;
@@ -580,6 +580,8 @@ section:not(.intro):not(.home) {
     margin: 0;
     height: 70%;
     top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .hobbies-item .img img {
     max-width: 60%;
