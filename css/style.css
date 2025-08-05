@@ -231,7 +231,7 @@ section:not(.intro):not(.home) {
     font-size: 40px;
   }
   .home .scroll-textBox {
-    top: 45%;
+    top: 40%;
   }
   .home .scroll-textBox .textBox .tit {
     font-size: 22px;
@@ -239,6 +239,10 @@ section:not(.intro):not(.home) {
   .home .scroll-textBox .textBox .txt {
     font-size: 16px;
     line-height: 1.4;
+    text-align: start;
+  }
+  .home .scroll-textBox .textBox .txt br {
+    display: none;
   }
   .scrollDownBox {
     scale: 0.8;
@@ -350,7 +354,10 @@ section:not(.intro):not(.home) {
     margin-left: 0;
     display: flex;
     justify-content: start;
-    width: 95%;
+    width: 100%;
+  }
+  .work .topBox .txt br {
+    display: none;
   }
   .work .bottomBox {  
     margin: 100px auto 0px;
@@ -576,15 +583,27 @@ section:not(.intro):not(.home) {
     white-space: pre-line;
     width: 100%;
   }
+  .hobbies .topBox .txt br {
+    display: none;
+  }
   .hobbies-gallery {
     margin: 0;
     height: 70%;
     top: 25%;
     left: 50%;
     transform: translateX(-50%);
+    width: 100vw;
   }
   .hobbies-item .img img {
     max-width: 60%;
+  }
+  .hobbies-gallery .hobbies-item:nth-child(4) {
+    top: 60% !important;
+    left: 50% !important;
+  }
+  .hobbies-gallery .hobbies-item:nth-child(5) {
+    top: 80% !important;
+    left: 70% !important;
   }
 }
 
