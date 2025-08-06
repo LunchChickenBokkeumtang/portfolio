@@ -308,12 +308,12 @@ section:not(.intro):not(.home) {
 
 
 .work .bottomBox .container .year {font-size: 30px; font-family: 'Pretendard',sans-serif;}
-.work .bottomBox .container .rightBox {margin-left: 380px;}
+.work .bottomBox .container .rightBox {margin-left: 380px; transition: all 0.5s;}
 .work .bottomBox .container .textBox {margin-bottom: 62px; font-weight: 600;}
 .work .bottomBox .container .name {font-size: 30px; line-height: 1.1; margin-bottom: 5px;}
 .work .bottomBox .container .about {font-size: 15px; color: #505050; font-weight: 500;}
 
-.work .bottomBox .container .rightBox.motion {animation: rightBox; animation-duration: 1.5s;}
+.work .bottomBox .container .rightBox.motion {animation: rightBox; animation-duration: 1.2s;}
 @keyframes rightBox {
     0% {transform: translateX(350px); opacity: 0;}
     30% {transform: translateX(400px); opacity: 0;}
@@ -833,10 +833,16 @@ section:not(.intro):not(.home) {
 
 
 
-.projects .swiper-button-next {position: absolute; top: 3%; right: 10%;}
-.projects .swiper-button-prev {position: absolute; top: 3%; left: 82%;}
+.projects .swiper-button-next {position: absolute; top: 3%; right: 10%; }
+.projects .swiper-button-prev {position: absolute; top: 3%; left: 82%; }
 
+.projects .swiper-button-prev button {
+  cursor: pointer;
+}
 
+.projects .swiper-button-next button {
+  cursor: pointer;
+}
 
 
 /* projects 반응형 */
