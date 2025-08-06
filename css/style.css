@@ -9,7 +9,14 @@ li {list-style: none;}
 address, em, i {font-style: normal;}
 a:focus {outline: none}
 button:focus {outline: none}
-html {scroll-behavior: smooth; width: 100%; user-select: none;}
+html {scroll-behavior: smooth; width: 100%; user-select: none;
+  scrollbar-width: none;
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
 
 @font-face {
     font-family: 'Pretendard';
@@ -111,6 +118,7 @@ section:not(.intro):not(.home) {
   margin: 500px 0 0 !important;
 }
 .wrap {position: relative; width: 100%; overflow: hidden;}
+
 .en1 {font-family: 'SortsMillGoudy',sans-serif; font-weight: 300;}
 .en2 {font-family: 'Trirong',sans-serif; font-weight: 300;}
 
@@ -1040,6 +1048,156 @@ section:not(.intro):not(.home) {
     -webkit-transform: translateZ(0) rotateX(0);
             transform: translateZ(0) rotateX(0);
   }
+}
+
+
+
+/* 디자인 반응형 */
+@media (max-width: 1366px) {
+.design .inner {
+  width: 95%;
+}
+.design .topBox {
+  margin-bottom: 100px;
+}
+.design .container li:nth-child(2) {
+  margin-top: 0;
+  margin-bottom: 200px;
+}
+.design .container {
+  width: 100%;
+  align-items: center;
+  gap: 100px;
+}
+.design .container li {
+  width: 45%;
+}
+.twentytwenty-wrapper {
+  width: 100%;
+  display: block;
+}
+}
+
+@media (max-width: 1180px) {
+
+}
+
+@media (max-width: 1024px) {
+.design .container li {
+  width: 40%;
+}
+.design .container {
+  gap: 0;
+}
+.design .topBox h2 {
+  font-size: 80px;
+}
+.design .textBox {
+  margin-top: 100px;
+}
+.column {
+  padding: 0;
+}
+.columns {
+  padding: 0;
+}
+}
+
+@media (max-width: 480px) {
+.design .topBox h2 {
+  font-size: 30px;
+}
+.design .topBox {
+  margin-bottom: 50px;
+}
+.design .container {
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+.design .container li {
+  width: 100%;
+}
+.design .container li .row {
+  min-width: 100%;
+}
+.design .container li:nth-child(2) {
+  margin-bottom: 0;
+}
+.design .container li:nth-child(4) {
+  margin: 0;
+  width: 100%;
+}
+.design .changeBox {
+  display: none;
+}
+.designBox-inner {
+  width: 95%;
+  padding: 25px 0px;
+}
+.designBox-inner .title {
+  font-size: 24px;
+}
+.design .container li img {
+  height: auto;
+  object-fit: contain;
+}
+.designBox .designBox-inner .bottomBox {
+  flex-direction: column;
+}
+.designBox-inner::after {
+  display: none;
+}
+.designBox .leftBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.designBox .leftBox .leftBox-title02 {
+  margin-top: 20px;
+  text-align: start;
+}
+.designBox .leftBox .leftBox-title {
+  text-align: start;
+}
+.designBox .leftBox .leftBox-txt01 {
+  line-height: 1.2;
+  text-align: end;
+}
+.designBox .leftBox .leftBox-txt02 {
+  line-height: 1.2;
+  text-align: end;
+}
+.designBox .leftBox .leftBox-txt03 {
+  line-height: 1.2;
+  text-align: end;
+}
+.designBox .rightBox {
+  width: 100%;
+  margin-left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: safe;
+  gap: 20px;
+  margin-top: 50px;
+}
+.designBox .rightBox .colorBox {
+  margin: 0;
+  width: 40%;
+}
+.designBox .rightBox .subcolorBox {
+  width: 40%;
+}
+.design .textBox {
+  margin-top: 50px;
+  flex-direction: column;
+}
+.design .textBox .skill {
+  margin-left: 0;
+  gap: 10px;
+  margin-top: 10px;
+}
 }
 
 
