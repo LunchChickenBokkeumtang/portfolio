@@ -1131,12 +1131,16 @@ section:not(.intro):not(.home) {
 .design .changeBox {
   display: none;
 }
+.designBox {
+  height: auto;
+}
 .designBox-inner {
   width: 95%;
-  padding: 25px 0px;
+  padding: 15px 0px;
 }
 .designBox-inner .title {
-  font-size: 24px;
+  font-size: 20px;
+  margin-bottom: 0;
 }
 .design .container li img {
   height: auto;
@@ -1153,6 +1157,7 @@ section:not(.intro):not(.home) {
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-top: 10px;
 }
 .designBox .leftBox .leftBox-title02 {
   margin-top: 20px;
@@ -1180,7 +1185,7 @@ section:not(.intro):not(.home) {
   justify-content: space-around;
   align-items: safe;
   gap: 20px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .designBox .rightBox .colorBox {
   margin: 0;
@@ -1251,6 +1256,126 @@ section:not(.intro):not(.home) {
     opacity: 1;
   }
 }
+
+
+
+/* 컨텍트 반응형 */
+
+@media (max-width: 1366px) {
+.contact .inner {
+  width: 95%;
+}
+.contact .container .textBox .imgBox {
+  right: 0%;
+}
+.contact .container .textBox .imgBox svg {
+  width: 100%;
+  left: 10%;
+  top: 80%;
+}
+}
+
+@media (max-width: 1180px) {
+.contact .container .textBox .list {
+  line-height: 50px;
+}
+.contact .bottomBox {
+  margin-top: 200px;
+}
+.contact .container .textBox .imgBox .mainImg {
+  width: 80%;
+  float: right;
+}
+.contact .container .textBox .imgBox svg {
+  width: 70%;
+  left: 40%;
+  bottom: 0%;
+}
+}
+
+@media (max-width: 1024px) {
+.contact .container .textBox .list .subject {
+  margin-right: 50px;
+}
+.contact .container .textBox .list {
+  width: 100%;
+}
+.contact .bottomBox {
+  margin-top: 150px;
+}
+.contact .container .textBox .imgBox .mainImg {
+  width: 70%;
+}
+}
+
+@media (max-width: 480px) {
+.contact {
+  height: 100vh;
+}
+.contact .inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0px;
+  margin-top: 0;
+}
+.contact .inner .container {
+  flex: 1;
+}
+.contact .bottomBox .text {
+  font-size: 12px;
+}
+.contact .bottomBox .title {
+  font-size: 16px;
+}
+.contact .topBox h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.contact .bottomBox {
+  flex: 1;
+  margin-top: 50px;
+}
+.contact .container .textBox .list {
+  margin-left: 0;
+}
+.contact .container .textBox .imgBox {
+  position: relative;
+}
+.contact .container .textBox .list .logoBox {
+  margin-right: 10px;
+}
+.contact .container .textBox .list .subject p {
+  font-size: 16px;
+}
+.contact .container .textBox .list .subject {
+  margin-right: 30px;
+}
+.contact .container .textBox .list .detail {
+  font-size: 16px;
+}
+.contact .container .textBox .imgBox .mainImg {
+  width: 40%;
+  display: block;
+  float: left;
+}
+.contact .container .textBox .imgBox svg {
+  left: 30%;
+  bottom: 0%;
+  margin-top: 50px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* naviBox */
