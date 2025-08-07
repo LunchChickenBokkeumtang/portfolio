@@ -699,7 +699,7 @@ section:not(.intro):not(.home) {
 .projects .swiper-slide .imgBox .skill li img {width: 100%; height: auto;}
 .projects .swiper-slide .textBox {position: absolute; z-index: 2; left: -25%; bottom: 0%; opacity: 0; transition: opacity 0.4s, left 0.4s; transition-delay: 0.2s; border: none; background-color: transparent !important;}
 .projects .swiper-slide .textBox span {display: block; line-height: 1;}
-.projects .swiper-slide .textBox .title {font-size: 1vw; color: #fff;}
+.projects .swiper-slide .textBox .title {font-size: 1vw; color: #fff; margin-bottom: 20px;}
 .projects .swiper-slide .textBox .title p {font-family: 'pretendard',sans-serif; font-weight: normal; font-size: 1vw; display: block; text-align: center;}
 .projects .swiper-slide .textBox .title .en1{font-size: 3vw;}
 
