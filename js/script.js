@@ -62,7 +62,7 @@ function animateHomeImage() {
 
     // ③ img 애니메이션
     gsap.to(img, {
-      duration: 1.8,
+      duration: 2.0,
       ...vars,
       ease: 'power2.out'
     });
@@ -70,11 +70,11 @@ function animateHomeImage() {
     // ④ span 애니메이션
     if (span) {
       gsap.to(span, {
-        duration: 0.8,
+        duration: 1,
         opacity: 0,
         margin: 0,
         ease: 'power1.out',
-        delay: 1
+        delay: 1.5
       });
     }
 
@@ -148,14 +148,14 @@ function animateIntroToHome() {
     autoAlpha: 0,
     duration: 1.2,
     ease:     'power1.out'
-  }, 1.0);
+  }, 1.5);
 
   // 4-3) Home 섹션 자체를 페이드인 (Intro가 거의 사라지는 시점에 시작, 1.4~2.2초 겹침)
   tl.to(homeSection, {
     autoAlpha: 1,
     duration: 0.8,
     ease:     'power1.out'
-  }, 1.0);
+  }, 1);
 
   // 4-4) Home 카피 요소는 약간 딜레이를 준 뒤 한꺼번에 페이드인 (1.6~2.4초)
   tl.to(homeEls, {
@@ -163,7 +163,7 @@ function animateIntroToHome() {
     duration: 0.8,
     ease:     'power1.out',
     stagger:  0.1
-  }, 1.6);
+  }, 2.0);
 
   // 5) 완료 콜백
   tl.add(() => {
