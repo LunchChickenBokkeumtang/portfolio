@@ -93,7 +93,14 @@ function animateHomeImage() {
 function animateIntroToHome() {
   gsap.registerPlugin(ScrollTrigger);
 
-  // 1) Intro 글자 요소와 Home 카피 요소 선택
+  // —————————— 스크롤 비활성화 시작 ——————————
+  // 1) 기본 데스크탑/모바일 스크롤 모두 끄기
+  document.body.style.overflow = 'hidden';
+  // 2) 터치무브(모바일)도 막기
+  const preventDefault = e => e.preventDefault();
+  window.addEventListener('touchmove', preventDefault, { passive: false });
+  // —————————— 여기까지 ——————————
+
   const introEls = [
     document.querySelector('.intro .y'),
     document.querySelector('.intro .h'),
@@ -109,66 +116,37 @@ function animateIntroToHome() {
   const introSection = document.querySelector('.intro');
   const homeSection  = document.querySelector('.home');
 
-  // 2) 초기 상태 세팅
-  gsap.set(introEls, { clearProps: 'all' });
-  gsap.set(homeSection, { autoAlpha: 0 });
-  gsap.set(homeEls, { autoAlpha: 0 });
-
-  // 3) Intro → Home 글자 위치 차이 계산 (센터 기준)
   const deltas = introEls.map((el, i) => {
     const homeEl = homeEls[i];
     const from = el.getBoundingClientRect();
     const to   = homeEl.getBoundingClientRect();
 
-    const deltaX = (to.left + to.width  / 2) - (from.left + from.width  / 2);
-    const deltaY = (to.top  + to.height / 2) - (from.top  + from.height / 2);
-
-    return { el, deltaX, deltaY };
+    return {
+      el,
+      deltaX: (to.left + to.width  / 2) - (from.left + from.width  / 2),
+      deltaY: (to.top  + to.height / 2) - (from.top  + from.height / 2)
+    };
   });
 
-  // 4) 타임라인 구성
   const tl = gsap.timeline({
     defaults: { duration: 1.2, ease: 'power2.inOut' }
   });
 
-  // 4-1) Intro 글자 이동만 수행 (opacity 변화 없음)
   deltas.forEach(({ el, deltaX, deltaY }) => {
     tl.to(el, { x: deltaX, y: deltaY }, 0);
   });
 
-  // [삭제] ▶ Intro 개별 글자 페이드아웃
-  // tl.to(introEls, {
-  //   autoAlpha: 0,
-  //   duration: 0.6,
-  //   ease:     'power1.out'
-  // }, 1.2);
+  tl.to(introSection, { autoAlpha: 0, duration: 1.2, ease: 'power1.out' }, 1.5);
+  tl.to(homeSection,  { autoAlpha: 1, duration: 0.8, ease: 'power1.out' }, 1);
+  tl.to(homeEls,      { autoAlpha: 1, duration: 0.8, ease: 'power1.out', stagger: 0.1 }, 2.0);
 
-  // 4-2) Intro 섹션 전체를 페이드아웃 (1.4~2.0초)
-  tl.to(introSection, { 
-    autoAlpha: 0,
-    duration: 1.2,
-    ease:     'power1.out'
-  }, 1.5);
-
-  // 4-3) Home 섹션 자체를 페이드인 (Intro가 거의 사라지는 시점에 시작, 1.4~2.2초 겹침)
-  tl.to(homeSection, {
-    autoAlpha: 1,
-    duration: 0.8,
-    ease:     'power1.out'
-  }, 1);
-
-  // 4-4) Home 카피 요소는 약간 딜레이를 준 뒤 한꺼번에 페이드인 (1.6~2.4초)
-  tl.to(homeEls, {
-    autoAlpha: 1,
-    duration: 0.8,
-    ease:     'power1.out',
-    stagger:  0.1
-  }, 2.0);
-
-  // 5) 완료 콜백
   tl.add(() => {
-    gsap.set(introSection, { pointerEvents: 'none' });
+    // —————————— 스크롤 재활성화 ——————————
     document.body.style.overflow = 'auto';
+    window.removeEventListener('touchmove', preventDefault);
+    // —————————— 여기까지 ——————————
+
+    gsap.set(introSection, { pointerEvents: 'none' });
     ScrollTrigger.refresh();
     animateHomeImage();
     startScrollTriggerAnimation();
