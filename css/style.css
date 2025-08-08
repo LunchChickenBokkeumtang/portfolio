@@ -1138,7 +1138,7 @@ section:not(.intro):not(.home) {
   width: 100%;
 }
 .design .changeBox {
-  display: none;
+  display: none !important;
 }
 .designBox {
   height: auto;
