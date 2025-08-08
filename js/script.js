@@ -297,83 +297,93 @@ window.addEventListener('load', () => {
 
 // swiper
 var swiper = new Swiper(".mySwiper", {
+  // ↓ ↓ ↓ 초기화를 지연시키기
+  init: false,
+
+  // ↓ ↓ ↓ lazy load 설정
+  preloadImages: false,
+  lazy: {
+    loadPrevNext: true,     // 현재 슬라이드와 주변 슬라이드만 로드
+    loadPrevNextAmount: 1,
+  },
+
+  // ↓ ↓ ↓ 퍼포먼스 최적화 옵션
+  watchSlidesProgress: true,
+  watchSlidesVisibility: true,
+
+  // pagination / navigation 은 그대로
   centeredSlides: true,
   pagination: {
     el: ".swiper-pagination",
     type: "fraction",
-    formatFractionCurrent: number => ('0' + number).slice(-2),
-    formatFractionTotal:   number => ('0' + number).slice(-2),
+    formatFractionCurrent: number => ("0" + number).slice(-2),
+    formatFractionTotal:   number => ("0" + number).slice(-2),
   },
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
 
-  // ← 여기부터!
+  // breakpoint 설정 그대로
   breakpoints: {
-    // 화면 너비가 320px 이상일 때
-    320: {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      centeredSlides: false,  // 모바일엔 중앙정렬 끄기
-    },
-    // 화면 너비가 640px 이상일 때
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 20,
-      centeredSlides: false,
-    },
-    // 화면 너비가 1024px 이상일 때
-    1024: {
-      slidesPerView: 3,
-      spaceBetween: 40,
-      centeredSlides: true,
-    },
-    // 화면 너비가 1440px 이상일 때
-    1440: {
-      slidesPerView: 4,
-      spaceBetween: 75,
-      centeredSlides: true,
-    },
+    320:  { slidesPerView: 1, spaceBetween: 10, centeredSlides: false },
+    640:  { slidesPerView: 2, spaceBetween: 20, centeredSlides: false },
+    1024: { slidesPerView: 3, spaceBetween: 40, centeredSlides: true  },
+    1440: { slidesPerView: 4, spaceBetween: 75, centeredSlides: true  },
+  },
+
+  // init 콜백: 초기화 후 .swiper-initialized 클래스 붙이기
+  on: {
+    init: function() {
+      this.el.classList.add("swiper-initialized");
+    }
   }
 });
 
+// 3) DOM & 리소스 로드 완료 시점에 Swiper 초기화
+window.addEventListener("load", function() {
+  swiper.init();
+});
 
 
 // containerBox 360도 회전
-// document.querySelectorAll('.containerBox').forEach(box => {
-//   let rafId = null;
-//   let lastX = 0, lastY = 0;
-//   const width  = box.clientWidth;
-//   const height = box.clientHeight;
-//   const maxAngle = 10;
+document.querySelectorAll('.containerBox').forEach(box => {
+  const maxAngle = 5;
+  let rafId = null;
 
-//   box.addEventListener('mousemove', function(e) {
-//     const rect = box.getBoundingClientRect();
-//     lastX = e.clientX - rect.left;
-//     lastY = e.clientY - rect.top;
-//     if (!rafId) {
-//       rafId = requestAnimationFrame(updateTransform);
-//     }
-//   });
+  const update = (clientX, clientY) => {
+    const rect = box.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
 
-//   box.addEventListener('mouseleave', function() {
-//     if (rafId) {
-//       cancelAnimationFrame(rafId);
-//       rafId = null;
-//     }
-//     box.style.transform = 'perspective(350px) rotateX(0deg) rotateY(0deg)';
-//   });
+    const normX = (x / rect.width)  * 2 - 1;
+    const normY = (y / rect.height) * 2 - 1;
+    const rotateY = normX * maxAngle;
+    const rotateX = -normY * maxAngle;
 
-//   function updateTransform() {
-//     const normX = (lastX / width) * 2 - 1;
-//     const normY = (lastY / height) * 2 - 1;
-//     const rotateY = normX * maxAngle;
-//     const rotateX = -normY * maxAngle;
-//     box.style.transform = `perspective(350px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-//     rafId = requestAnimationFrame(updateTransform);
-//   }
-// });
+    box.style.transform =
+      `perspective(360px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+    
+    rafId = null;
+  };
+
+  box.addEventListener('mousemove', e => {
+    // 이전에 예약된 콜백이 있으면 취소
+    if (rafId) cancelAnimationFrame(rafId);
+
+    // 한 프레임 뒤에 update 실행
+    rafId = requestAnimationFrame(() => update(e.clientX, e.clientY));
+  });
+
+  box.addEventListener('mouseleave', () => {
+    // 남아 있는 콜백 취소
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = null;
+    // 회전 초기화
+    box.style.transform = 'perspective(360px) rotateX(0deg) rotateY(0deg)';
+  });
+});
+
 
 
 // var x;
