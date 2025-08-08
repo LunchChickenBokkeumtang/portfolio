@@ -3,12 +3,58 @@
 // --------------------------------------------------
 $(document).on('click', 'a[href="#"]', e => e.preventDefault());
 
-$(function() {
-  var isMobileView = window.matchMedia('(max-width: 500px)').matches;
 
+
+
+(function() {
+  let startY = 0;
+
+  // 터치 시작 위치 저장
+  document.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 1) {
+      startY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  // 터치 이동 중에 최상단에서 아래로 당기면 차단
+  document.addEventListener('touchmove', function(e) {
+    const currentY = e.touches[0].clientY;
+    const deltaY = currentY - startY;
+
+    // 문서 최상단에 있고, 아래로 당기는(positive) 제스처면 prevent
+    if (document.documentElement.scrollTop === 0 && deltaY > 0) {
+      e.preventDefault();
+    }
+  }, { passive: false });
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(function() {
+  // 1) JS 로만 CSS 주입: .animate은 숨기고, .motion 붙으면 보이도록
+  $('<style>')
+    .prop('type', 'text/css')
+    .html(`
+      .animate { visibility: hidden !important; }
+      .animate.motion { visibility: visible !important; }
+    `)
+    .appendTo('head');
+
+  // 2) scrolla 초기화
+  var isMobileView = window.matchMedia('(max-width: 500px)').matches;
   $('.animate').scrolla({
     mobile: true,
-    once: isMobileView
+    once:   isMobileView
   });
 });
 
@@ -274,54 +320,72 @@ window.addEventListener('load', () => {
 });
 
 // swiper
-var swiper = new Swiper(".mySwiper", {
-  // ↓ ↓ ↓ 초기화를 지연시키기
-  init: false,
-
-  // ↓ ↓ ↓ lazy load 설정
-  preloadImages: false,
-  lazy: {
-    loadPrevNext: true,     // 현재 슬라이드와 주변 슬라이드만 로드
-    loadPrevNextAmount: 1,
-  },
-
-  // ↓ ↓ ↓ 퍼포먼스 최적화 옵션
-  watchSlidesProgress: true,
-  watchSlidesVisibility: true,
-
-  // pagination / navigation 은 그대로
-  centeredSlides: true,
-  pagination: {
-    el: ".swiper-pagination",
-    type: "fraction",
-    formatFractionCurrent: number => ("0" + number).slice(-2),
-    formatFractionTotal:   number => ("0" + number).slice(-2),
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  // breakpoint 설정 그대로
-  breakpoints: {
-    320:  { slidesPerView: 1, spaceBetween: 10, centeredSlides: false },
-    640:  { slidesPerView: 2, spaceBetween: 20, centeredSlides: false },
-    1024: { slidesPerView: 3, spaceBetween: 40, centeredSlides: true  },
-    1440: { slidesPerView: 4, spaceBetween: 75, centeredSlides: true  },
-  },
-
-  // init 콜백: 초기화 후 .swiper-initialized 클래스 붙이기
-  on: {
-    init: function() {
-      this.el.classList.add("swiper-initialized");
+// 1) CSS 동적 주입: GPU 가속용 will-change 추가 + 초기 숨김
+(function() {
+  const style = document.createElement('style');
+  style.type = 'text/css';
+  style.appendChild(document.createTextNode(`
+    .mySwiper, 
+    .mySwiper .swiper-wrapper, 
+    .mySwiper .swiper-slide {
+      will-change: transform, opacity !important;
     }
+    .mySwiper .swiper-wrapper {
+      visibility: hidden !important;
+    }
+    .mySwiper.swiper-initialized .swiper-wrapper {
+      visibility: visible !important;
+    }
+  `));
+  document.head.appendChild(style);
+})();
+
+$(function() {
+  const isMobileView = window.matchMedia('(max-width: 500px)').matches;
+
+  const swiper = new Swiper(".mySwiper", {
+    init: false,
+    preloadImages: false,
+    lazy: {
+      loadPrevNext:       true,
+      loadPrevNextAmount: 1,
+    },
+    watchSlidesProgress:   true,
+    watchSlidesVisibility: true,
+    centeredSlides:        true,
+    pagination: {
+      el: ".swiper-pagination",
+      type: "fraction",
+      formatFractionCurrent: n => ("0" + n).slice(-2),
+      formatFractionTotal:   n => ("0" + n).slice(-2),
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      320:  { slidesPerView: 1, spaceBetween: 10, centeredSlides: false },
+      640:  { slidesPerView: 2, spaceBetween: 20, centeredSlides: false },
+      1024: { slidesPerView: 3, spaceBetween: 40, centeredSlides: true  },
+      1440: { slidesPerView: 4, spaceBetween: 75, centeredSlides: true  },
+    },
+    on: {
+      init() {
+        this.el.classList.add("swiper-initialized");
+      }
+    }
+  });
+
+  // 2) 브라우저가 한가한 시점에 초기화 — requestIdleCallback 또는 setTimeout fallback
+  const doInit = () => swiper.init();
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(doInit, { timeout: 200 });
+  } else {
+    // 최소한 100ms 늦춰서 메인 렌더와 분리
+    setTimeout(doInit, 100);
   }
 });
 
-// 3) DOM & 리소스 로드 완료 시점에 Swiper 초기화
-window.addEventListener("load", function() {
-  swiper.init();
-});
 
 
 // containerBox 360도 회전
