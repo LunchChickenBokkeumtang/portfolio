@@ -388,43 +388,110 @@ $(function() {
 
 
 
-// containerBox 360도 회전
-document.querySelectorAll('.containerBox').forEach(box => {
-  const maxAngle = 5;
-  let rafId = null;
+// only apply on hover-capable devices (i.e. desktop)
+if (window.matchMedia('(hover: hover)').matches) {
+  document.querySelectorAll('.containerBox').forEach(box => {
+    const hasSpot = !!box.querySelector('.clear');
+    let rafId = null;
 
-  const update = (clientX, clientY) => {
-    const rect = box.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const y = clientY - rect.top;
+    if (hasSpot) {
+      // — SPOTLIGHT LOGIC for blur+clear containers —
+      const radius = 180; // spotlight radius in px
 
-    const normX = (x / rect.width)  * 2 - 1;
-    const normY = (y / rect.height) * 2 - 1;
-    const rotateY = normX * maxAngle;
-    const rotateX = -normY * maxAngle;
+      const updateSpot = (clientX, clientY) => {
+        const { left, top } = box.getBoundingClientRect();
+        const x = clientX - left;
+        const y = clientY - top;
+        box.style.setProperty('--clip-x', `${x}px`);
+        box.style.setProperty('--clip-y', `${y}px`);
+        box.querySelector('.clear').style.clipPath =
+          `circle(${radius}px at ${x}px ${y}px)`;
+        rafId = null;
+      };
 
-    box.style.transform =
-      `perspective(360px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
-    
-    rafId = null;
-  };
+      const onMoveSpot = e => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => updateSpot(e.clientX, e.clientY));
+      };
 
-  box.addEventListener('mousemove', e => {
-    // 이전에 예약된 콜백이 있으면 취소
-    if (rafId) cancelAnimationFrame(rafId);
+      const resetSpot = () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = null;
+        box.querySelector('.clear').style.clipPath =
+          `circle(0px at var(--clip-x) var(--clip-y))`;
+      };
 
-    // 한 프레임 뒤에 update 실행
-    rafId = requestAnimationFrame(() => update(e.clientX, e.clientY));
+      box.addEventListener('mousemove', onMoveSpot);
+      box.addEventListener('mouseenter', onMoveSpot);
+      box.addEventListener('mouseleave', resetSpot);
+
+    } else {
+      // — 3D TILT + COLOR SHIFT + SCALE + Z-ROT + SHADOW for plain-image containers —
+      const maxAngle = 5;   // rotation in degrees
+      const maxShift = 5;   // image translate in px
+      const maxZ     = 5;    // Z-axis rotation in degrees
+      const scale    = 1.00; // hover scale
+      let rafId = null;
+
+      const updateTilt = (clientX, clientY) => {
+        const { left, top, width, height } = box.getBoundingClientRect();
+        const x = clientX - left;
+        const y = clientY - top;
+        const normX = (x / width)  * 2 - 1;
+        const normY = (y / height) * 2 - 1;
+
+        // compute transforms
+        const rotY  = normX * maxAngle;
+        const rotX  = -normY * maxAngle;
+        const rotZ  = normX * maxZ;
+        const shiftX = normX * maxShift;
+        const shiftY = normY * maxShift;
+        const hue    = normX * 15;                   // ±15deg hue shift
+        const sat    = 1 + Math.abs(normY) * 0.5;    // 1.0–1.5 saturate
+        const shX    = -rotY * 1.5;                  // shadow offset X
+        const shY    = rotX * 1.5;                   // shadow offset Y
+
+        // apply container transforms & shadow
+        box.style.transform = 
+          `perspective(360px)
+           rotateX(${rotX.toFixed(1)}deg)
+           rotateY(${rotY.toFixed(1)}deg)
+           rotateZ(${rotZ.toFixed(1)}deg)
+           scale(${scale})`;
+        box.style.boxShadow =
+          `${shX.toFixed(1)}px ${shY.toFixed(1)}px 20px rgba(0,0,0,0.2)`;
+
+        // apply img transforms & filter
+        const img = box.querySelector('img');
+        img.style.transform = `translate(${shiftX.toFixed(1)}px, ${shiftY.toFixed(1)}px)`;
+        img.style.filter    = `hue-rotate(${hue.toFixed(1)}deg) saturate(${sat.toFixed(2)})`;
+
+        rafId = null;
+      };
+
+      const onMoveTilt = e => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(() => updateTilt(e.clientX, e.clientY));
+      };
+
+      const resetTilt = () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = null;
+        box.style.transform = 'perspective(360px) rotateX(0) rotateY(0) rotateZ(0) scale(1)';
+        box.style.boxShadow = 'none';
+        const img = box.querySelector('img');
+        img.style.transform = 'translate(0,0)';
+        img.style.filter    = 'hue-rotate(0deg) saturate(1)';
+      };
+
+      box.addEventListener('mousemove', onMoveTilt);
+      box.addEventListener('mouseenter', onMoveTilt);
+      box.addEventListener('mouseleave', resetTilt);
+    }
   });
+}
 
-  box.addEventListener('mouseleave', () => {
-    // 남아 있는 콜백 취소
-    if (rafId) cancelAnimationFrame(rafId);
-    rafId = null;
-    // 회전 초기화
-    box.style.transform = 'perspective(360px) rotateX(0deg) rotateY(0deg)';
-  });
-});
+
 
 
 
