@@ -1212,6 +1212,9 @@ section:not(.intro):not(.home) {
 .design .changeBox {
   display: none !important;
 }
+.design .container li:nth-child(3) {
+  display: none;
+}
 .designBox {
   height: auto;
 }
@@ -1296,7 +1299,8 @@ section:not(.intro):not(.home) {
 .contact .topBox {display: inline-block;}
 .contact .topBox h2 {font-size: 105px; font-weight: 300; margin-bottom: 50px;}
 .contact .container .textBox .list {display: flex; width: 50%; line-height: 80px; margin-left: 15px;}
-.contact .container .textBox .list .logoBox {margin-right: 30px;}
+.contact .container .textBox .list .logoBox {margin-right: 30px; }
+.contact .container .textBox .list .logoBox img {width: 28px; height: 28px;}
 .contact .container .textBox .list .subject {font-size: 22px; margin-right: 100px;}
 .contact .container .textBox .list .detail {font-size: 24px; color: #dedede;}
 .contact .container .textBox .imgBox {position: absolute; right: 5%;top: 30px;}
@@ -1444,6 +1448,9 @@ section:not(.intro):not(.home) {
   left: 30%;
   bottom: 0%;
   margin-top: 50px;
+}
+.contact .container .textBox .list .detail .git-detail {
+  font-size: 11px;
 }
 }
 
