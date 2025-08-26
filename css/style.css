@@ -1468,3 +1468,8 @@ section:not(.intro):not(.home) {
 .main-nav ul li a img {transition: transform 0.4s ease; filter: brightness(0.5); width: 60%;}
 .main-nav ul li:hover img{transform: translateY(-20px) scale(1.2); filter: brightness(1.2);}
 .main-nav ul li.active img{transform: translateY(-20px) scale(1.2); filter: brightness(1.2);}
+
+
+@media (max-width: 500px) {
+.main-nav {display: none;}
+}
