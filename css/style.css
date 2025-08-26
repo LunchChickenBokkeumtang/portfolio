@@ -677,6 +677,8 @@ section:not(.intro):not(.home) {
 .projects .inner {width: 82.5%; margin: 0 auto; margin-top: 100px;}
 .projects .topBox h2 {font-size: 105px; font-weight: 300; margin-bottom: -16px;}
 .projects .topBox .txt {font-family: 'Pretendard',sans-serif; font-size: 16px; color: #606060; margin-left: 14px;}
+.projects .topBox .txt.url {margin-top: -30px; font-size: 16px; text-align: right; margin-bottom: 20px;}
+.projects .topBox.motion .txt.url {animation: rightBox; animation-duration: 1s;}
 .projects .topBox.motion {animation: topBox; animation-duration: 0.8s;}
 @keyframes topBox {
     0% {transform: translateX(-200px); opacity: 0;}
@@ -913,6 +915,11 @@ section:not(.intro):not(.home) {
   }
   .projects {
     overflow: visible;
+  }
+  .projects .topBox .txt.url {
+    margin-top: 30px;
+    text-align: left;
+    margin-bottom: 0px;
   }
 }
 
